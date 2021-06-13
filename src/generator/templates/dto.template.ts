@@ -25,7 +25,7 @@ export function createDtoTemplate({
   }
 
   const dtos = model.fields
-    .map((field) => (field.kind === "object" ? field.type : ""))
+    .map((field) => (field.kind === "object" && field.type !== model.name ? field.type : ""))
     .filter(Boolean);
 
   const enums = model.fields
